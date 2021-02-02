@@ -1,4 +1,4 @@
-require 'pry'
+
 class MP3Importer 
   
   attr_accessor :path, :files, :import 
@@ -8,7 +8,7 @@ class MP3Importer
   end
   
   def files
-    @files = Dir.entries(@path)
+    @files = Dir.entries(@path)                             #also could use Dir.glob("#{path}/*.mp3").map {|file| file.gsub("#{path}/', "") }
     @files.delete_if {|file| file == "." || file == ".." }
   end 
   
